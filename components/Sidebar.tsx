@@ -18,6 +18,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { prefix } from '@/lib/utils'
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
@@ -69,9 +70,9 @@ export default function Sidebar() {
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <figure className={`relative rounded-full overflow-hidden border-2 border-black transition-all duration-500 ${collapsed ? 'w-10 h-10' : 'w-24 h-24'}`}>
-              <img 
-                src="/me.jpeg" 
-                alt="Roshish Parajuli" 
+              <img
+                src={prefix("/me.jpeg")}
+                alt="Roshish Parajuli"
                 className="w-full h-full object-cover"
               />
             </figure>
@@ -102,10 +103,10 @@ export default function Sidebar() {
         <ul className="space-y-2">
           {navItems.map(item => {
             const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
-            
+
             return (
               <li key={item.path}>
-                <Link 
+                <Link
                   href={item.path}
                   className={`
                     w-full flex items-center
@@ -124,19 +125,19 @@ export default function Sidebar() {
                   <span className={`text-xl transition-colors duration-300 ${isActive ? 'text-indigo-400' : 'group-hover:text-indigo-400'}`}>
                     {item.icon}
                   </span>
-                  
+
                   {!collapsed && (
                     <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
                       {item.name}
                     </span>
                   )}
-                  
+
                   {isActive && !collapsed && (
-                     <motion.div 
-                       layoutId="active-nav"
-                       className="absolute inset-0 bg-indigo-600/10 rounded-xl" 
-                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                     />
+                    <motion.div
+                      layoutId="active-nav"
+                      className="absolute inset-0 bg-indigo-600/10 rounded-xl"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
                   )}
                 </Link>
               </li>
@@ -149,7 +150,7 @@ export default function Sidebar() {
       <div className="p-4 border-t border-white/10 bg-black/20">
         {!collapsed ? (
           <div className="text-xs text-gray-500 flex flex-col gap-3">
-             <div className="flex items-center gap-3 hover:text-indigo-400 transition-colors cursor-pointer">
+            <div className="flex items-center gap-3 hover:text-indigo-400 transition-colors cursor-pointer">
               <FiMail className="text-lg" />
               <span className="truncate">contact@roshish.com.np</span>
             </div>
@@ -167,10 +168,10 @@ export default function Sidebar() {
             </div>
           </div>
         ) : (
-           <div className="flex flex-col items-center gap-4 text-gray-500">
-             <FiMail className="hover:text-indigo-400 cursor-pointer" />
-             <FiGithub className="hover:text-white cursor-pointer" />
-           </div>
+          <div className="flex flex-col items-center gap-4 text-gray-500">
+            <FiMail className="hover:text-indigo-400 cursor-pointer" />
+            <FiGithub className="hover:text-white cursor-pointer" />
+          </div>
         )}
       </div>
     </motion.aside >

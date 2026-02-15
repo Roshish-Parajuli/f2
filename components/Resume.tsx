@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { FiDownload } from 'react-icons/fi'
+import { prefix } from '@/lib/utils'
 
 export default function Resume() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.1 }
     }
@@ -19,9 +20,9 @@ export default function Resume() {
 
   return (
     <article className="w-full min-h-screen px-6 py-10 md:px-12 md:py-16 flex flex-col items-center gap-12">
-      
+
       {/* Header */}
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center w-full max-w-4xl"
@@ -31,7 +32,7 @@ export default function Resume() {
         </h2>
         <div className="flex justify-center">
           <a
-            href="/Roshish_Parajuli_CV.docx"
+            href={prefix("/Roshish_Parajuli_CV.docx")}
             download="Roshish_Parajuli_CV.docx"
             className="group flex items-center gap-2 py-3 px-8 rounded-full text-sm font-semibold transition-all duration-300 bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/30"
           >
@@ -42,7 +43,7 @@ export default function Resume() {
       </motion.header>
 
       {/* Experience Section */}
-      <motion.section 
+      <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -52,7 +53,7 @@ export default function Resume() {
           <div className="bg-indigo-600 p-3 rounded-xl mr-4 text-white shadow-lg shadow-indigo-500/20">💼</div>
           <h3 className="text-2xl md:text-3xl font-bold text-white">Professional Experience</h3>
         </div>
-        
+
         <div className="relative border-l-2 border-indigo-500/30 ml-4 space-y-12">
           {/* Grepsr */}
           <motion.div variants={itemVariants} className="ml-8 relative">
@@ -97,7 +98,7 @@ export default function Resume() {
       </motion.section>
 
       {/* Education Section */}
-      <motion.section 
+      <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -107,7 +108,7 @@ export default function Resume() {
           <div className="bg-emerald-600 p-3 rounded-xl mr-4 text-white shadow-lg shadow-emerald-500/20">🎓</div>
           <h3 className="text-2xl md:text-3xl font-bold text-white">Education</h3>
         </div>
-        
+
         <div className="relative border-l-2 border-emerald-500/30 ml-4">
           <motion.div variants={itemVariants} className="ml-8 relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-emerald-600 rounded-full border-4 border-black" />
@@ -123,7 +124,7 @@ export default function Resume() {
       </motion.section>
 
       {/* Skills Section */}
-      <motion.section 
+      <motion.section
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -138,8 +139,8 @@ export default function Resume() {
             { category: "Databases", items: ["PostgreSQL", "MySQL", "SQL Server"] },
             { category: "Tools & Cloud", items: ["AWS (S3)", "Git", "Docker", "Linux", "Postman"] }
           ].map((skillGroup, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               variants={itemVariants}
               className="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-colors"
             >
