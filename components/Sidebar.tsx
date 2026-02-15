@@ -90,7 +90,7 @@ export default function Sidebar() {
                   Roshish Parajuli
                 </h1>
                 <p className="text-xs text-indigo-400 font-mono mt-1 uppercase tracking-widest">
-                  Data Engineer
+                  Full Stack Developer
                 </p>
               </motion.div>
             )}
