@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useRef, useEffect, KeyboardEvent } from 'react'
+import React, { useState, useRef, useEffect, KeyboardEvent } from 'react'
 
 interface CommandResult {
   command: string
-  output: string | JSX.Element | JSX.Element[] | any[]
+  output: string | React.JSX.Element | React.JSX.Element[] | any[]
   isError: boolean
 }
 
