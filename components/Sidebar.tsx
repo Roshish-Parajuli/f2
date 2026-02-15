@@ -29,7 +29,7 @@ export default function Sidebar() {
     { name: 'Resume', icon: <FiFileText />, path: '/resume' },
     { name: 'Portfolio', icon: <FiBriefcase />, path: '/portfolio' },
     { name: 'Blog', icon: <FiPenTool />, path: '/blog' },
-    { name: 'Gallery', icon: <FiImage />, path: '/gallery' },
+    // { name: 'Gallery', icon: <FiImage />, path: '/gallery' },
     { name: 'Contact', icon: <FiMessageSquare />, path: '/contact' }
   ]
 
