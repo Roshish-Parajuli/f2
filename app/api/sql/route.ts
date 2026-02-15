@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     if (match && match[1]) {
       const whereClause = match[1].trim()
-      const parts = whereClause.split('=').map(p => p.trim())
+      const parts = whereClause.split('=').map((p: string) => p.trim())
 
       if (parts.length === 2) {
         const column = parts[0]
