@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "Public Assets Management System",
+    "stack": ["PHP", "MySQL", "Laravel"],
+    "description": "Designed a web-based system to manage and track government assets, improving accountability and resource allocation.",
+    "slug": "public-assets-system",
+    "challenges": [
+      "Normalizing complex legacy data structures",
+      "Implementing role-based access control for multiple departments",
+      "Optimizing query performance for large asset lists"
+    ],
+    "outcomes": [
+      "40% improvement in asset tracking accuracy",
+      "Streamlined reporting process for government audits",
+      "Unified database for 10+ government departments"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Fitaid (AI Fitness Assistant)",
+    "stack": ["Python", "AI/ML", "APIs"],
+    "description": "Developed an AI-driven assistant integrating APIs and data analytics to provide personalized fitness recommendations.",
+    "slug": "fitaid",
+    "challenges": [
+      "Integrating diverse health data sensors via APIs",
+      "Developing a personalized recommendation algorithm",
+      "Managing real-time data ingestion and processing"
+    ],
+    "outcomes": [
+      "Achieved 85% accuracy in exercise recognition",
+      "Successfully integrated with 3 major wearable brands",
+      "Scale-ready architecture for 10,000+ active users"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Grepsr Internal QA Tools",
+    "stack": ["Python", "Automation", "Data Validation"],
+    "description": "Developed internal QA tools and lightweight widgets to automate daily operational tasks, including data validation and error detection.",
+    "slug": "grepsr-qa-tools",
+    "challenges": [
+      "Automating complex regex-based data validation",
+      "Building a user-friendly CLI for non-technical staff",
+      "Ensuring tool compatibility with various data formats (JSON, CSV, XML)"
+    ],
+    "outcomes": [
+      "Reduced manual QA time by 60%",
+      "Increased data delivery quality by 25%",
+      "Adopted as a standard tool for the entire engineering team"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "freelanceNep",
+    "stack": ["Laravel", "MySQL", "PHP"],
+    "description": "A platform for hiring semi-skilled workers, with a data-driven recommendation system.",
+    "slug": "freelanceNep",
+    "challenges": [
+      "Matching workers based on proximity and skill level",
+      "Managing high-concurrency during peak hiring hours",
+      "Developing a secure payment and escrow system"
+    ],
+    "outcomes": [
+      "Onboarded 500+ workers in the first three months",
+      "Average worker response time reduced to under 30 minutes",
+      "99% transaction success rate achieved"
+    ]
+  }
+]

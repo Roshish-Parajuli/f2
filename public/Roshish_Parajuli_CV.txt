@@ -1,0 +1,34 @@
+﻿Roshish Parajuli 
+
+Lalitpur, Nepal | +977 9810126471 | contact@roshishparajuli.com.np 
+LinkedIn: linkedin.com/in/roshish-parajuli-60abb7210 
+Professional Summary 
+Data Engineer with hands-on experience designing, building, and maintaining scalable ETL/ELT pipelines for transforming unstructured and semi-structured data into structured, analytics-ready datasets. Strong proficiency in Python, SQL, and workflow automation, with proven experience developing QA tools and internal widgets to automate daily operational tasks, improve data quality, and enhance delivery efficiency. Adept at cloud-based data processing, validation, and cross-functional collaboration in fast-paced, remote environments.
+Technical Skills 
+● ETL & Data Integration: Web scraping, data cleaning, API integrations, workflow automation 
+● Programming: Python, JavaScript, TypeScript, SQL, PHP 
+● Tools & Platforms: Git, REST APIs, Postman, VSCode, Linux 
+● Databases: MySQL, PostgreSQL, SQL Server 
+● Other: Data analysis, reporting, problem solving, version control, agile workflows 
+Professional Experience 
+Associate Delivery Engineer - Grepsr | Kathmandu, Nepal 
+Apr 2024 - Present 
+● Develop and maintain data extraction and ETL workflows for international clients, ensuring high accuracy and efficiency. 
+● Build scalable pipelines to collect, transform, and deliver large datasets through APIs and cloud storage. 
+● Collaborate with internal QA and engineering teams to ensure quality assurance and timely delivery. 
+● Automate repetitive workflows to reduce turnaround time and improve team productivity. 
+● Developed automated data extraction and transformation pipelines delivering data via APIs, cloud storage (AWS S3), and structured databases
+● Developed internal QA tools and lightweight widgets to automate daily operational tasks, including data validation, error detection, retry handling, and delivery checks.
+Full Stack Developer - Aqore | Kathmandu, Nepal 
+Sept 2023 - Mar 2024 
+● Developed and maintained web applications, focusing on backend logic and data integration. 
+● Worked with SQL databases and API endpoints for real-time data handling. 
+● Collaborated with cross-functional teams to build secure and efficient solutions. 
+Education 
+Bachelor's in Computer Engineering - Khwopa Engineering College 
+2018 - 2023 
+Projects 
+● Public Assets Management System - Designed a web-based system to manage and track government assets. 
+● Fitaid (AI Fitness Assistant) - Developed an AI-driven assistant integrating APIs and data analytics to provide personalized fitness recommendations. 
+Languages 
+Nepali (Native), English (Fluent), Hindi (Fluent), German (Basic) 
