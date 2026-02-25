@@ -13,8 +13,8 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
   useEffect(() => {
     const controls = animate(0, target, {
       duration: 2,
-      ease: 'easeOut',
-      onUpdate: (v) => setCount(Math.floor(v)),
+      ease: 'easeOut' as const,
+      onUpdate: (v: number) => setCount(Math.floor(v)),
     })
     return () => controls.stop()
   }, [target])

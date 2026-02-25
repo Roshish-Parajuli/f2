@@ -2,26 +2,26 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 import TerminalPortfolio from './TerminalPortfolio'
 import projects from '@/data/projects.json'
 
 function NormalPortfolioView() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.1 }
     }
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1 }
   }
 
   return (
-    <motion.ul 
+    <motion.ul
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -38,14 +38,14 @@ function NormalPortfolioView() {
               {project.name}
             </h3>
             <div className="bg-indigo-600/20 p-2 rounded-lg text-indigo-400">
-               <FiBriefcase size={20} />
+              <FiBriefcase size={20} />
             </div>
           </div>
-          
+
           <p className="text-gray-400 mb-6 leading-relaxed line-clamp-3">
             {project.description}
           </p>
-          
+
           <div className="flex flex-wrap gap-2 mb-8">
             {project.stack.map(tech => (
               <span
@@ -73,9 +73,9 @@ export default function Portfolio() {
 
   return (
     <article className="w-full min-h-screen px-6 py-10 md:px-12 md:py-16 flex flex-col items-center gap-12">
-      
+
       {/* Header */}
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center w-full max-w-4xl"
@@ -83,13 +83,13 @@ export default function Portfolio() {
         <p className="text-gray-400 text-lg mb-8">
           Switch to Terminal view for a different experience.
         </p>
-        
+
         <div className="flex justify-center gap-4">
           <button
             onClick={() => setView('normal')}
             className={`flex items-center gap-2 py-3 px-6 rounded-2xl text-sm font-bold transition-all duration-300 ${view === 'normal'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
               }`}
           >
             <FiLayout /> Normal View
@@ -97,8 +97,8 @@ export default function Portfolio() {
           <button
             onClick={() => setView('terminal')}
             className={`flex items-center gap-2 py-3 px-6 rounded-2xl text-sm font-bold transition-all duration-300 ${view === 'terminal'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
               }`}
           >
             <FiTerminal /> Terminal View

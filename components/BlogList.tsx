@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { FiArrowRight, FiClock, FiCalendar, FiTag, FiSearch } from 'react-icons/fi'
 import { useState } from 'react'
 
@@ -32,7 +32,7 @@ export default function BlogList({ posts, allTags }: BlogListProps) {
     return matchesTag && matchesSearch
   })
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,7 +40,7 @@ export default function BlogList({ posts, allTags }: BlogListProps) {
     }
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 30, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
   }
@@ -100,8 +100,8 @@ export default function BlogList({ posts, allTags }: BlogListProps) {
           <button
             onClick={() => setActiveTag(null)}
             className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${!activeTag
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
               }`}
           >
             All Posts
@@ -111,8 +111,8 @@ export default function BlogList({ posts, allTags }: BlogListProps) {
               key={tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${activeTag === tag
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
             >
               {tag}
