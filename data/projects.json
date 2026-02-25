@@ -60,24 +60,5 @@
       "Increased data delivery quality by 25%",
       "Adopted as a standard tool for the entire engineering team"
     ]
-  },
-  {
-    "id": 4,
-    "name": "freelanceNp",
-    "stack": [
-      "Laravel",
-      "MySQL",
-      "PHP"
-    ],
-    "description": "A platform for hiring semi-skilled workers, with a data-driven recommendation system.",
-    "slug": "freelanceNp",
-    "challenges": [
-      "Matching workers based on proximity and skill level",
-      "Managing high-concurrency during peak hiring hours",
-      "Developing a secure payment and escrow system"
-    ],
-    "outcomes": [
-      "Currently on development"
-    ]
   }
 ]

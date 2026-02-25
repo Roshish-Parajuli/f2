@@ -1,10 +1,73 @@
-# How a Data Lake Works
+---
+title: "Building Real-Time Data Pipelines: From Zero to Production"
+date: "2025-08-01"
+tags: ["Data Pipelines", "Real-Time", "Streaming", "Architecture", "Python"]
+author: "Roshish Parajuli"
+readTime: "8 min read"
+description: "A practical guide to designing and building real-time data pipelines — covering architecture decisions, technology choices, and lessons learned from production deployments."
+image: "https://images.unsplash.com/photo-1551288049-bbbda5366391?auto=format&fit=crop&q=80&w=1200"
+---
 
-A practical explanation of modern data lakes.
+# Building Real-Time Data Pipelines: From Zero to Production
 
-## Architecture
-API → S3 → Spark → Warehouse
+Batch processing had its era. In today's world, business decisions need to be made in seconds, not hours. Real-time data pipelines are no longer a luxury—they're a competitive advantage.
 
-## Key Takeaways
-- Storage is not analytics
-- Structure comes later
+## Why Real-Time?
+
+Traditional batch pipelines run on schedules: every hour, every day. But when your competitor is making pricing decisions in real-time and you're waiting for yesterday's data, you've already lost.
+
+### Real-Time Use Cases
+- **E-commerce**: Dynamic pricing based on competitor movements
+- **Finance**: Fraud detection within milliseconds of a transaction
+- **IoT**: Sensor anomaly detection before equipment fails
+- **Social Media**: Trending topic detection as it happens
+
+## Architecture: The Building Blocks
+
+A production-grade real-time pipeline has several key components:
+
+```
+Sources → Event Bus → Stream Processor → State Store → Sink → Dashboard
+```
+
+### 1. Event Sources
+Every change is an event. Database CDC (Change Data Capture), webhook events, log streams, API polling—all feeding into a unified event bus.
+
+### 2. Message Queue / Event Bus
+The backbone of any streaming architecture. Apache Kafka, AWS Kinesis, or Google Pub/Sub. Choose based on:
+- **Throughput**: How many events per second?
+- **Latency**: How fast does each event need to be processed?
+- **Durability**: Can you afford to lose events?
+
+### 3. Stream Processing
+This is where the magic happens. Transform, aggregate, join, and enrich events in real-time.
+
+```python
+# Simplified stream processing pseudocode
+async def process_event(event):
+    enriched = await enrich(event)
+    validated = validate(enriched)
+    if validated:
+        await emit_to_sink(validated)
+    else:
+        await emit_to_dead_letter(event)
+```
+
+### 4. State Management
+Stateful operations (aggregations, windowing, deduplication) need careful state management. In-memory state is fast but volatile. External state stores (Redis, RocksDB) provide durability.
+
+## Lessons from Production
+
+After building several real-time pipelines, here are my hard-won lessons:
+
+1. **Idempotency is King**: Events will be delivered more than once. Design every processor to handle duplicates gracefully.
+2. **Schema Registry**: Use Apache Avro or Protocol Buffers with a schema registry. Schema evolution is inevitable.
+3. **Backpressure**: When your consumer can't keep up with producers, you need a strategy. Don't just drop events.
+4. **Monitoring**: You can't fix what you can't see. Track lag, throughput, error rates, and processing latency.
+5. **Dead Letter Queues**: Failed events need to go somewhere recoverable.
+
+## The Bottom Line
+
+Real-time pipelines are harder than batch. They're stateful, concurrent, and unforgiving. But when built correctly, they transform how organizations make decisions—from reactive to proactive.
+
+Start small. Pick one use case. Prove the value. Then scale.

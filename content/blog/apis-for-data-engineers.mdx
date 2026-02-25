@@ -1,18 +1,63 @@
-# APIs for Data Engineers
+---
+title: "APIs for Data Engineers: The Complete Playbook"
+date: "2025-10-10"
+tags: ["APIs", "Data Engineering", "REST", "GraphQL", "Python"]
+author: "Roshish Parajuli"
+readTime: "7 min read"
+description: "A comprehensive guide to working with APIs as a data engineer — from REST and GraphQL fundamentals to building robust data ingestion pipelines with rate limiting and error handling."
+image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1200"
+---
 
-APIs (Application Programming Interfaces) are a crucial tool for data engineers. They allow you to programmatically access data from various sources.
+# APIs for Data Engineers: The Complete Playbook
+
+APIs (Application Programming Interfaces) are the lifeblood of modern data engineering. They're the bridges that connect data sources to your pipelines, and mastering them is non-negotiable.
 
 ## Types of APIs
 
 There are several types of APIs, but the most common are:
 
-*   **REST APIs:** These are the most common type of API. They are based on the REST (Representational State Transfer) architectural style.
-*   **GraphQL APIs:** These are a newer type of API that is gaining popularity. They allow you to request only the data you need, which can be more efficient than REST APIs.
+*   **REST APIs:** The workhorse of the web. Stateless, resource-based, and universally supported. Perfect for CRUD operations and standardized data access.
+*   **GraphQL APIs:** Query exactly what you need—no over-fetching, no under-fetching. Ideal when you need surgical precision in data retrieval.
+*   **Streaming APIs:** WebSocket and SSE-based APIs for real-time data. Think stock tickers, social media feeds, and IoT sensor data.
+*   **gRPC APIs:** Protocol Buffer-based, high-performance APIs for inter-service communication. Lower latency than REST, but requires more setup.
 
-## Use Cases
+## Building Robust API Pipelines
 
-APIs can be used for a variety of tasks, including:
+The difference between a script and a production pipeline is how you handle the unhappy path:
 
-*   Extracting data from sources that don't have a direct database connection.
-*   Building data pipelines that are triggered by events.
-*   Integrating with third-party services.
+### Rate Limiting
+```python
+import time
+from functools import wraps
+
+def rate_limit(calls_per_second):
+    def decorator(func):
+        last_called = [0.0]
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            elapsed = time.time() - last_called[0]
+            wait = 1.0 / calls_per_second - elapsed
+            if wait > 0:
+                time.sleep(wait)
+            last_called[0] = time.time()
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+```
+
+### Exponential Backoff
+Never hammer a failing API. Back off exponentially with jitter to be a good citizen.
+
+### Pagination Handling
+Most APIs paginate results. Build generic pagination handlers that work with cursor-based, offset-based, and token-based pagination schemes.
+
+## Use Cases in Data Engineering
+
+*   **Data Ingestion:** Pulling data from SaaS platforms (Salesforce, HubSpot, Stripe) into your data warehouse.
+*   **Event-Driven Pipelines:** Webhooks triggering immediate data processing without polling.
+*   **Data Enrichment:** Augmenting existing datasets with third-party data (geo-coding, company info, sentiment analysis).
+*   **Orchestration:** Using APIs to trigger Airflow DAGs, dbt runs, or Spark jobs programmatically.
+
+## Key Takeaways
+
+APIs aren't just about making HTTP requests. They're about building **resilient**, **respectful**, and **reliable** data pipelines that can handle millions of requests without breaking or getting blocked.
