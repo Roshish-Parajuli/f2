@@ -1,8 +1,64 @@
-2:I[8972,["956","static/chunks/ee560e2c-16abca7082a0953c.js","948","static/chunks/948-165c6b3c5390fea9.js","250","static/chunks/250-c7e6de34f9e8b280.js","404","static/chunks/app/blog/page-d0fb27106815374f.js"],""]
-4:I[5613,[],""]
-5:I[1778,[],""]
-6:I[9374,["956","static/chunks/ee560e2c-16abca7082a0953c.js","948","static/chunks/948-165c6b3c5390fea9.js","250","static/chunks/250-c7e6de34f9e8b280.js","878","static/chunks/878-166bb01d0a90066b.js","185","static/chunks/app/layout-8779c4c77e8aa3c2.js"],""]
-3:T5c6,# Data Extraction: The Art of Harvesting the Web
+2:I[8972,["956","static/chunks/ee560e2c-bd6f9f98a7779122.js","569","static/chunks/569-c351d626453d67fe.js","250","static/chunks/250-c7e6de34f9e8b280.js","404","static/chunks/app/blog/page-fcede8b19d179f95.js"],""]
+9:I[5613,[],""]
+a:I[1778,[],""]
+b:I[9374,["956","static/chunks/ee560e2c-bd6f9f98a7779122.js","569","static/chunks/569-c351d626453d67fe.js","250","static/chunks/250-c7e6de34f9e8b280.js","878","static/chunks/878-166bb01d0a90066b.js","185","static/chunks/app/layout-1484f0030642fef4.js"],""]
+3:T9ff,# The Automation Mindset: Why I Automate Everything
+
+If I do something more than twice, I automate it. This isn't just a productivity hack—it's a philosophy that fundamentally changed how I approach engineering.
+
+## The Rule of Three
+
+Here's my simple framework:
+1. **First time**: Do it manually, learn the process
+2. **Second time**: Note the repetition, start planning automation
+3. **Third time**: Stop. Write the script. Never do it manually again.
+
+## What I Automate
+
+### Data Validation
+Instead of manually spot-checking datasets, I build validation pipelines that run automatically:
+
+```python
+def validate_dataset(df):
+    checks = {
+        "no_nulls": df.isnull().sum().sum() == 0,
+        "no_duplicates": df.duplicated().sum() == 0,
+        "schema_valid": set(df.columns) == EXPECTED_SCHEMA,
+        "row_count": len(df) > MIN_ROW_COUNT,
+    }
+    failed = [k for k, v in checks.items() if not v]
+    if failed:
+        raise DataQualityError(f"Failed checks: {failed}")
+```
+
+### Deployment
+Push to main → Tests run → Build triggers → Deploy to production. Zero manual steps. Zero human error.
+
+### Monitoring & Alerting
+My pipelines monitor themselves. Anomaly detection catches data drift before stakeholders notice. Alerts fire to Slack, not to my anxiety.
+
+### Report Generation
+Weekly reports that used to take 2 hours now generate themselves at 8 AM every Monday. I review them over coffee instead of creating them.
+
+## The Compound Effect
+
+The magic of automation is compound interest. Each automated task saves minutes. Over weeks, those minutes become hours. Over months, those hours become days.
+
+But the real win isn't time savings—it's **cognitive load reduction**. When you don't have to remember to do things, your brain is free to solve harder problems.
+
+## Common Objections
+
+**"It takes longer to automate than to just do it manually."**
+Sometimes, yes. But you're not comparing correctly. Compare the automation time against the *total lifetime cost* of doing it manually. Include the cost of human error, the cost of context switching, and the cost of it blocking someone else.
+
+**"What if the process changes?"**
+Good automation is modular. When the process changes, you update one module, not the whole pipeline.
+
+## Start Today
+
+Pick one repetitive task. The most annoying one. Automate it this week. Feel the dopamine. Then do it again.
+
+Automation isn't about replacing humans. It's about freeing humans to do what they're best at: creative problem-solving, strategic thinking, and building things that matter.4:T8ad,# Data Extraction: The Art of Harvesting the Web
 
 Data is the new oil, but raw data is useless. It's the **extraction and refinement** that creates value. As a Data Engineer, I don't just "download files"—I architect resilient, high-performance pipelines that turn the chaotic web into structured, actionable intelligence.
 
@@ -22,8 +78,200 @@ Anyone can write a scraper. But building a **Data System** requires:
 2.  **Monitoring:** Tracking success rates and latency in real-time.
 3.  **Scalability:** Distributing extraction jobs across worker nodes to handle millions of requests.
 
+## The Architecture
+
+A production-grade data extraction system looks something like this:
+
+```
+Target Sites → Proxy Layer → Extraction Engine → Validation → Data Lake → Analytics
+```
+
+Each layer has its own complexity:
+- **Proxy Layer**: Rotating residential proxies, browser fingerprinting, session management
+- **Extraction Engine**: CSS selectors, XPath, regex patterns, AI-powered element detection
+- **Validation**: Schema validation, deduplication, anomaly detection
+- **Data Lake**: S3-based storage with partitioning by date and source
+
+## Key Takeaways
+
 I build extractors that are **robust**, **stealthy**, and **efficient**. Whether it's financial market data, e-commerce pricing, or social sentiment, I get the data you need, when you need it.
 
-0:["-nxE6G55QlYOGryhIKgIo",[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":["__PAGE__",{},["$L1",["$","$L2",null,{"posts":[{"slug":"apis-for-data-engineers","title":"APIs for Data Engineers","description":"APIs (Application Programming Interfaces) are a crucial tool for data engineers. They allow you to programmatically access data from various sources.","content":"# APIs for Data Engineers\n\nAPIs (Application Programming Interfaces) are a crucial tool for data engineers. They allow you to programmatically access data from various sources.\n\n## Types of APIs\n\nThere are several types of APIs, but the most common are:\n\n*   **REST APIs:** These are the most common type of API. They are based on the REST (Representational State Transfer) architectural style.\n*   **GraphQL APIs:** These are a newer type of API that is gaining popularity. They allow you to request only the data you need, which can be more efficient than REST APIs.\n\n## Use Cases\n\nAPIs can be used for a variety of tasks, including:\n\n*   Extracting data from sources that don't have a direct database connection.\n*   Building data pipelines that are triggered by events.\n*   Integrating with third-party services.\n"},{"slug":"data-extraction-101","title":"Data Extraction: The Art of Harvesting the Web","description":"Data is the new oil, but raw data is useless. It's the **extraction and refinement** that creates value. As a Data Engineer, I don't just \"download files\"—I arc...","content":"$3"},{"slug":"first-post","title":"How a Data Lake Works","description":"A practical explanation of modern data lakes.","content":"# How a Data Lake Works\n\nA practical explanation of modern data lakes.\n\n## Architecture\nAPI → S3 → Spark → Warehouse\n\n## Key Takeaways\n- Storage is not analytics\n- Structure comes later"},{"slug":"full-stack-supremacy","title":"The Myth of \"Just a Backend Dev\"","description":"In the world of software, we love labels. Frontend. Backend. DevOps. Data Engineer. But labels are limiting. I believe in being a **Product Engineer**—someone w...","content":"# The Myth of \"Just a Backend Dev\"\n\nIn the world of software, we love labels. Frontend. Backend. DevOps. Data Engineer. But labels are limiting. I believe in being a **Product Engineer**—someone who owns the outcome, not just a slice of the stack.\n\n## Why Full Stack Matters\n\nSpecialization is valuable, but versatility is a superpower.\n*   **Frontend:** Understanding React and UI/UX means I build data tools that people *actually want to use*.\n*   **Backend:** Knowing DB internals and API design ensures my frontends are fast and scalable.\n*   **Infrastructure:** Managing my own deployments (Docker, AWS, CI/CD) means I don't wait for \"Ops\" to unblock me. I ship.\n\n## Shipping is a Feature\n\nThe best code is the code that's in production helping users. My philosophy is simple: **Solve the problem, whatever tech it takes.**\nWhether it's a complex ETL pipeline in Python, a real-time dashboard in Next.js, or a serverless scraping bot, I build end-to-end solutions.\n\nI don't just move tickets. I move needles.\n"},{"slug":"introduction-to-data-lakes","title":"Introduction to Data Lakes","description":"A data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale.","content":"# Introduction to Data Lakes\n\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale.\n\n## Key Concepts\n\n*   **Schema-on-Read:** Unlike traditional data warehouses, data lakes use a schema-on-read approach. This means that you don't have to define a schema before you store the data.\n*   **Scalability:** Data lakes are designed to be highly scalable. You can store petabytes of data in a data lake.\n*   **Flexibility:** Data lakes can store data in any format, including structured, semi-structured, and unstructured data.\n\n## Use Cases\n\nData lakes are used for a variety of purposes, including:\n\n*   Big data analytics\n*   Machine learning\n*   Real-time data processing\n"}]}],null]]},["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","html",null,{"lang":"en","className":"__variable_51684b __variable_c59aa5 scroll-smooth","children":["$","body",null,{"className":"bg-black text-white selection:bg-indigo-500/30 font-poppins","children":["$","div",null,{"className":"flex flex-col md:flex-row min-h-screen bg-black overflow-hidden relative","children":[["$","div",null,{"className":"hidden md:block h-screen sticky top-0 z-50","children":["$","$L6",null,{}]}],["$","main",null,{"className":"flex-1 h-screen overflow-y-auto w-full relative","children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]]}]}]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/39976931e8c4d893.css","precedence":"next","crossOrigin":""}]],"$L7"]]]]
-7:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Roshish Parajuli | Data Engineer & Systems Architect"}],["$","meta","3",{"name":"description","content":"Roshish Parajuli is a Data Engineer specializing in scalable ETL pipelines, cloud-native analytics, and automation. Expert in Python, SQL, and AWS."}],["$","meta","4",{"name":"author","content":"Roshish Parajuli"}],["$","meta","5",{"name":"keywords","content":"Data Engineer,ETL,Python,SQL,AWS,Nepal,Roshish Parajuli,Data Pipelines,Automation"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","meta","7",{"property":"og:title","content":"Roshish Parajuli | Data Engineer"}],["$","meta","8",{"property":"og:description","content":"Building scalable data systems and automation tools."}],["$","meta","9",{"property":"og:url","content":"https://roshishparajuli.com.np"}],["$","meta","10",{"property":"og:site_name","content":"Roshish Parajuli Portfolio"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:image","content":"http://localhost:3000/og-image.jpg"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:creator","content":"@roshish_parajuli"}],["$","meta","18",{"name":"twitter:title","content":"Roshish Parajuli | Data Engineer"}],["$","meta","19",{"name":"twitter:description","content":"Building scalable data systems and automation tools."}],["$","meta","20",{"name":"twitter:image","content":"http://localhost:3000/og-image.jpg"}],["$","meta","21",{"name":"twitter:image:width","content":"1200"}],["$","meta","22",{"name":"twitter:image:height","content":"630"}],["$","meta","23",{"name":"next-size-adjust"}]]
+The difference between a hobbyist scraper and a production pipeline? Error handling, retry logic, and the ability to process millions of records without breaking a sweat.5:T532,# The Myth of "Just a Backend Dev"
+
+In the world of software, we love labels. Frontend. Backend. DevOps. Data Engineer. But labels are limiting. I believe in being a **Product Engineer**—someone who owns the outcome, not just a slice of the stack.
+
+## Why Full Stack Matters
+
+Specialization is valuable, but versatility is a superpower.
+*   **Frontend:** Understanding React and UI/UX means I build data tools that people *actually want to use*.
+*   **Backend:** Knowing DB internals and API design ensures my frontends are fast and scalable.
+*   **Infrastructure:** Managing my own deployments (Docker, AWS, CI/CD) means I don't wait for "Ops" to unblock me. I ship.
+
+## The T-Shaped Engineer
+
+The best engineers aren't jacks of all trades—they're **T-shaped**: deep expertise in one area with broad knowledge across many. My deep expertise is in data engineering and automation, but I can build a beautiful React dashboard, deploy it on AWS, and set up CI/CD to keep it running.
+
+## Shipping is a Feature
+
+The best code is the code that's in production helping users. My philosophy is simple: **Solve the problem, whatever tech it takes.**
+Whether it's a complex ETL pipeline in Python, a real-time dashboard in Next.js, or a serverless scraping bot, I build end-to-end solutions.
+
+I don't just move tickets. I move needles.6:T9cc,# APIs for Data Engineers: The Complete Playbook
+
+APIs (Application Programming Interfaces) are the lifeblood of modern data engineering. They're the bridges that connect data sources to your pipelines, and mastering them is non-negotiable.
+
+## Types of APIs
+
+There are several types of APIs, but the most common are:
+
+*   **REST APIs:** The workhorse of the web. Stateless, resource-based, and universally supported. Perfect for CRUD operations and standardized data access.
+*   **GraphQL APIs:** Query exactly what you need—no over-fetching, no under-fetching. Ideal when you need surgical precision in data retrieval.
+*   **Streaming APIs:** WebSocket and SSE-based APIs for real-time data. Think stock tickers, social media feeds, and IoT sensor data.
+*   **gRPC APIs:** Protocol Buffer-based, high-performance APIs for inter-service communication. Lower latency than REST, but requires more setup.
+
+## Building Robust API Pipelines
+
+The difference between a script and a production pipeline is how you handle the unhappy path:
+
+### Rate Limiting
+```python
+import time
+from functools import wraps
+
+def rate_limit(calls_per_second):
+    def decorator(func):
+        last_called = [0.0]
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            elapsed = time.time() - last_called[0]
+            wait = 1.0 / calls_per_second - elapsed
+            if wait > 0:
+                time.sleep(wait)
+            last_called[0] = time.time()
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+```
+
+### Exponential Backoff
+Never hammer a failing API. Back off exponentially with jitter to be a good citizen.
+
+### Pagination Handling
+Most APIs paginate results. Build generic pagination handlers that work with cursor-based, offset-based, and token-based pagination schemes.
+
+## Use Cases in Data Engineering
+
+*   **Data Ingestion:** Pulling data from SaaS platforms (Salesforce, HubSpot, Stripe) into your data warehouse.
+*   **Event-Driven Pipelines:** Webhooks triggering immediate data processing without polling.
+*   **Data Enrichment:** Augmenting existing datasets with third-party data (geo-coding, company info, sentiment analysis).
+*   **Orchestration:** Using APIs to trigger Airflow DAGs, dbt runs, or Spark jobs programmatically.
+
+## Key Takeaways
+
+APIs aren't just about making HTTP requests. They're about building **resilient**, **respectful**, and **reliable** data pipelines that can handle millions of requests without breaking or getting blocked.7:T823,# Introduction to Data Lakes: Store Everything, Query Anything
+
+A data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. Unlike traditional databases that require you to define schemas upfront, data lakes embrace the chaos.
+
+## Key Concepts
+
+*   **Schema-on-Read:** Unlike traditional data warehouses, data lakes use a schema-on-read approach. Store raw data first, apply structure when you query it. This flexibility is invaluable when data formats evolve rapidly.
+*   **Scalability:** Modern data lakes on cloud object storage (S3, GCS, Azure Blob) can store petabytes of data at pennies per gigabyte.
+*   **Flexibility:** JSON, CSV, Parquet, Avro, images, logs, videos—data lakes don't discriminate. Store it all, figure out the schema later.
+
+## Data Lake vs. Data Warehouse
+
+| Feature | Data Lake | Data Warehouse |
+|---------|-----------|----------------|
+| Schema | On-read | On-write |
+| Data Types | All formats | Structured only |
+| Cost | Low (object storage) | High (compute-heavy) |
+| Query Speed | Variable | Optimized |
+| Best For | Exploration | Reporting |
+
+## The Modern Data Lakehouse
+
+The industry is converging on the **Lakehouse** pattern—combining the flexibility of data lakes with the performance of data warehouses. Technologies like Delta Lake, Apache Iceberg, and Apache Hudi add ACID transactions, schema enforcement, and time travel queries to your data lake.
+
+## Architecture Pattern
+
+```
+Sources → Ingestion Layer → Raw Zone → Curated Zone → Serving Layer → Analytics
+```
+
+Each zone serves a purpose:
+- **Raw Zone**: Exact copies of source data, immutable
+- **Curated Zone**: Cleaned, deduplicated, standardized data
+- **Serving Zone**: Aggregated, business-ready datasets
+
+## Use Cases
+
+*   Big data analytics and machine learning model training
+*   Real-time data processing with streaming engines
+*   Historical data archival and compliance
+*   Cross-functional data democratization
+
+Data lakes aren't just storage—they're the foundation of a data-driven organization.8:Tb6d,# Building Real-Time Data Pipelines: From Zero to Production
+
+Batch processing had its era. In today's world, business decisions need to be made in seconds, not hours. Real-time data pipelines are no longer a luxury—they're a competitive advantage.
+
+## Why Real-Time?
+
+Traditional batch pipelines run on schedules: every hour, every day. But when your competitor is making pricing decisions in real-time and you're waiting for yesterday's data, you've already lost.
+
+### Real-Time Use Cases
+- **E-commerce**: Dynamic pricing based on competitor movements
+- **Finance**: Fraud detection within milliseconds of a transaction
+- **IoT**: Sensor anomaly detection before equipment fails
+- **Social Media**: Trending topic detection as it happens
+
+## Architecture: The Building Blocks
+
+A production-grade real-time pipeline has several key components:
+
+```
+Sources → Event Bus → Stream Processor → State Store → Sink → Dashboard
+```
+
+### 1. Event Sources
+Every change is an event. Database CDC (Change Data Capture), webhook events, log streams, API polling—all feeding into a unified event bus.
+
+### 2. Message Queue / Event Bus
+The backbone of any streaming architecture. Apache Kafka, AWS Kinesis, or Google Pub/Sub. Choose based on:
+- **Throughput**: How many events per second?
+- **Latency**: How fast does each event need to be processed?
+- **Durability**: Can you afford to lose events?
+
+### 3. Stream Processing
+This is where the magic happens. Transform, aggregate, join, and enrich events in real-time.
+
+```python
+# Simplified stream processing pseudocode
+async def process_event(event):
+    enriched = await enrich(event)
+    validated = validate(enriched)
+    if validated:
+        await emit_to_sink(validated)
+    else:
+        await emit_to_dead_letter(event)
+```
+
+### 4. State Management
+Stateful operations (aggregations, windowing, deduplication) need careful state management. In-memory state is fast but volatile. External state stores (Redis, RocksDB) provide durability.
+
+## Lessons from Production
+
+After building several real-time pipelines, here are my hard-won lessons:
+
+1. **Idempotency is King**: Events will be delivered more than once. Design every processor to handle duplicates gracefully.
+2. **Schema Registry**: Use Apache Avro or Protocol Buffers with a schema registry. Schema evolution is inevitable.
+3. **Backpressure**: When your consumer can't keep up with producers, you need a strategy. Don't just drop events.
+4. **Monitoring**: You can't fix what you can't see. Track lag, throughput, error rates, and processing latency.
+5. **Dead Letter Queues**: Failed events need to go somewhere recoverable.
+
+## The Bottom Line
+
+Real-time pipelines are harder than batch. They're stateful, concurrent, and unforgiving. But when built correctly, they transform how organizations make decisions—from reactive to proactive.
+
+Start small. Pick one use case. Prove the value. Then scale.0:["mEt3hZA6DaMdeSjEdCgAU",[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":["__PAGE__",{},["$L1",["$","$L2",null,{"posts":[{"slug":"automation-mindset","title":"The Automation Mindset: Why I Automate Everything","description":"How adopting an automation-first mindset transformed my workflow and multiplied my output as a software engineer — with practical examples and philosophies.","date":"2026-01-15","tags":["Automation","Productivity","Python","DevOps","Engineering"],"author":"Roshish Parajuli","readTime":"5 min read","image":"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200","content":"$3"},{"slug":"data-extraction-101","title":"Data Extraction: The Art of Harvesting the Web","description":"Learn the art of modern web data extraction — from headless browsers and reverse engineering APIs to building resilient, production-grade scraping pipelines at scale.","date":"2025-12-15","tags":["Web Scraping","Data Engineering","Python","ETL"],"author":"Roshish Parajuli","readTime":"6 min read","image":"https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=1200","content":"$4"},{"slug":"full-stack-supremacy","title":"The Myth of 'Just a Backend Dev'","description":"Why versatility beats specialization in modern software engineering. A case for being a Product Engineer who owns outcomes, not just code.","date":"2025-11-20","tags":["Full Stack","Career","Software Engineering","Philosophy"],"author":"Roshish Parajuli","readTime":"4 min read","image":"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200","content":"$5"},{"slug":"apis-for-data-engineers","title":"APIs for Data Engineers: The Complete Playbook","description":"A comprehensive guide to working with APIs as a data engineer — from REST and GraphQL fundamentals to building robust data ingestion pipelines with rate limiting and error handling.","date":"2025-10-10","tags":["APIs","Data Engineering","REST","GraphQL","Python"],"author":"Roshish Parajuli","readTime":"7 min read","image":"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1200","content":"$6"},{"slug":"introduction-to-data-lakes","title":"Introduction to Data Lakes: Store Everything, Query Anything","description":"Understanding data lakes — the centralized repositories that revolutionized how organizations store and analyze massive volumes of structured and unstructured data.","date":"2025-09-05","tags":["Data Lakes","Cloud","AWS S3","Big Data","Architecture"],"author":"Roshish Parajuli","readTime":"5 min read","image":"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200","content":"$7"},{"slug":"first-post","title":"Building Real-Time Data Pipelines: From Zero to Production","description":"A practical guide to designing and building real-time data pipelines — covering architecture decisions, technology choices, and lessons learned from production deployments.","date":"2025-08-01","tags":["Data Pipelines","Real-Time","Streaming","Architecture","Python"],"author":"Roshish Parajuli","readTime":"8 min read","image":"https://images.unsplash.com/photo-1551288049-bbbda5366391?auto=format&fit=crop&q=80&w=1200","content":"$8"}],"allTags":["APIs","AWS S3","Architecture","Automation","Big Data","Career","Cloud","Data Engineering","Data Lakes","Data Pipelines","DevOps","ETL","Engineering","Full Stack","GraphQL","Philosophy","Productivity","Python","REST","Real-Time","Software Engineering","Streaming","Web Scraping"]}],null]]},["$","$L9",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","html",null,{"lang":"en","className":"__variable_51684b __variable_c59aa5 scroll-smooth","children":["$","body",null,{"className":"bg-black text-white selection:bg-indigo-500/30 font-poppins","children":["$","div",null,{"className":"flex flex-col md:flex-row min-h-screen bg-black overflow-hidden relative","children":[["$","div",null,{"className":"hidden md:block h-screen sticky top-0 z-50","children":["$","$Lb",null,{}]}],["$","main",null,{"className":"flex-1 h-screen overflow-y-auto w-full relative","children":["$","$L9",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]]}]}]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8c21c4d02d0b8012.css","precedence":"next","crossOrigin":""}]],"$Lc"]]]]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Blog | Roshish Parajuli — Tech Insights & Engineering Guides"}],["$","meta","3",{"name":"description","content":"Read in-depth articles on data engineering, web scraping, automation, API design, and modern software architecture by Roshish Parajuli."}],["$","meta","4",{"name":"author","content":"Roshish Parajuli"}],["$","meta","5",{"name":"keywords","content":"Data Engineer,ETL,Python,SQL,AWS,Nepal,Roshish Parajuli,Data Pipelines,Automation"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://roshishparajuli.com.np/blog"}],["$","meta","8",{"property":"og:title","content":"Tech Insights Blog | Roshish Parajuli"}],["$","meta","9",{"property":"og:description","content":"Deep dives into data engineering, system architecture, and the craft of building production-grade software."}],["$","meta","10",{"property":"og:url","content":"https://roshishparajuli.com.np/blog"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Tech Insights Blog | Roshish Parajuli"}],["$","meta","14",{"name":"twitter:description","content":"Deep dives into data engineering, system architecture, and the craft of building production-grade software."}],["$","meta","15",{"name":"next-size-adjust"}]]
 1:null
