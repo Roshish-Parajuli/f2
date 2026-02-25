@@ -85,9 +85,9 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-600/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            Available for projects
+          <div className="inline-flex items-center gap-2 bg-gray-500/10 border border-gray-400/20 text-gray-400 text-xs font-mono uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            <span className="w-2 h-2 bg-gray-400 rounded-full" />
+            Currently unavailable for new projects
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
@@ -128,7 +128,7 @@ export default function About() {
             href="/contact"
             className="px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-semibold transition-all border border-white/10 hover:border-white/20"
           >
-            Hire Me
+            Contact Me
           </Link>
         </motion.div>
       </div>
