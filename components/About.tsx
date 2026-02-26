@@ -188,10 +188,7 @@ export default function About() {
           </p>
           <p>
             Currently working as an <strong className="text-white">Associate Delivery Engineer at Grepsr</strong>, where I build
-            data extraction and ETL workflows for international clients. On the side, I run{' '}
-            <a href="https://micro-saas.online" target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors font-medium">
-              micro-saas.online
-            </a>, a saas platform.
+            data extraction and ETL workflows for international clients.
           </p>
         </div>
       </motion.section>
