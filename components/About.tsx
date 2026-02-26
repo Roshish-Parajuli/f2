@@ -189,9 +189,9 @@ export default function About() {
           <p>
             Currently working as an <strong className="text-white">Associate Delivery Engineer at Grepsr</strong>, where I build
             data extraction and ETL workflows for international clients. On the side, I run{' '}
-            <a href="https://crawl-data.com" target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors font-medium">
-              Crawl-Data
-            </a>, a data scraping startup.
+            <a href="https://micro-saas.online" target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors font-medium">
+              micro-saas.online
+            </a>, a saas platform.
           </p>
         </div>
       </motion.section>
@@ -279,7 +279,7 @@ export default function About() {
           Let's Build Something <span className="text-gradient">Amazing</span>
         </h2>
         <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-          Got a project in mind? I'm always open to discussing new opportunities and ideas.
+          Got a project in mind? I'm open to discussing new opportunities and ideas.
         </p>
         <Link
           href="/contact"
