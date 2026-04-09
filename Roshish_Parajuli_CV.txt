@@ -32,3 +32,6 @@ Projects
 ● Fitaid (AI Fitness Assistant) - Developed an AI-driven assistant integrating APIs and data analytics to provide personalized fitness recommendations. 
 Languages 
 Nepali (Native), English (Fluent), Hindi (Fluent), German (Basic) 
+
+
+
